@@ -48,13 +48,13 @@ npx @nexus-lab/create-mcp-server my-server
 
 | オプション | 説明 | デフォルト |
 |-----------|------|-----------|
-| `-t, --template <template>` | テンプレート選択（minimal / full / http） | `minimal` |
+| `-t, --template <template>` | テンプレート選択（minimal / full / http / database / auth） | `minimal` |
 | `--no-install` | `npm install` をスキップ | `false` |
 | `--no-git` | `git init` をスキップ | `false` |
 
 ## テンプレートの選び方
 
-3つのテンプレートを用意しています。用途に合わせて選んでください。
+5つのテンプレートを用意しています。用途に合わせて選んでください。
 
 ### `minimal` — まずはここから
 
@@ -75,6 +75,19 @@ npx @nexus-lab/create-mcp-server my-server
 - CORS設定済み
 - リモートからアクセスできるMCPサーバーを構築可能
 - **おすすめ:** Web APIとして公開したい方、複数クライアントから接続したい方
+
+### `database` — データベース連携（プレミアム）
+
+- SQLite + Drizzle ORM統合
+- CRUD操作のツールが一式揃っている
+- インメモリDBでのテスト環境付き
+- **おすすめ:** データの永続化が必要な方、ノート管理やタスク管理ツールを作りたい方
+
+### `auth` — 認証・認可付き（プレミアム）
+
+- 認証・認可の仕組みが組み込み済み
+- セキュアなAPIサーバー構築向け
+- **おすすめ:** ユーザー管理やアクセス制御が必要な方
 
 ## 実際にminimalテンプレートで作ってみる
 
@@ -254,6 +267,8 @@ export function greet(name: string): string {
   return `Hello, ${name}! Welcome to the MCP server.`;
 }
 
+// 安全な式評価（再帰降下パーサー）
+// ※ new Function() はコードインジェクションのリスクがあるため使用しません
 export function calculate(expression: string): string {
   const sanitized = expression.replace(/\s/g, "");
   if (!/^[\d+\-*/().]+$/.test(sanitized)) {
@@ -261,12 +276,14 @@ export function calculate(expression: string): string {
       "Invalid expression. Only numbers and +, -, *, /, (, ) are allowed."
     );
   }
-  const result = new Function(`"use strict"; return (${sanitized});`)();
-  if (typeof result !== "number" || !Number.isFinite(result)) {
+  const result = parseExpression(sanitized);
+  if (!Number.isFinite(result)) {
     throw new Error("Expression did not evaluate to a finite number.");
   }
   return String(result);
 }
+// parseExpression / parseTerm / parseFactor の実装は
+// テンプレートのソースコードを参照してください
 
 export function registerTools(server: McpServer): void {
   server.tool(
@@ -306,7 +323,8 @@ export function registerTools(server: McpServer): void {
 注目すべきポイント：
 
 - **ビジネスロジックが関数としてexportされている** — `greet()` や `calculate()` を直接テストできる
-- **入力バリデーション** — `calculate` では正規表現で安全な式のみ許可。Zodスキーマと合わせて二重の防御
+- **安全な式評価** — `calculate` では再帰降下パーサーで式を評価。`new Function()` のようなコードインジェクションリスクを排除している
+- **入力バリデーション** — 正規表現で安全な文字のみ許可。Zodスキーマと合わせて二重の防御
 - **エラーハンドリング** — `isError: true` を返すことでClaudeにエラーを通知
 
 ### リソース（resources.ts）
@@ -325,7 +343,7 @@ export function registerResources(server: McpServer): void {
   server.resource(
     "app-config",
     "config://app",
-    "Application configuration data",
+    { description: "Application configuration data" },
     async () => ({
       contents: [
         {
@@ -437,6 +455,8 @@ npm run build
 | とりあえず試したい | `minimal` |
 | 本格的に開発したい | `full` |
 | HTTPで公開したい | `http` |
+| DBと連携したい | `database`（プレミアム） |
+| 認証を組み込みたい | `auth`（プレミアム） |
 
 MCPの可能性は無限大です。社内ツール連携、データベースアクセス、外部API統合 — あなたのアイデア次第でClaudeをどこまでも拡張できます。
 

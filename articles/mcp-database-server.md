@@ -44,9 +44,13 @@ npm init -y
 ### 2. 依存関係のインストール
 
 ```bash
-npm install @modelcontextprotocol/sdk zod drizzle-orm better-sqlite3 dotenv
+npm install @modelcontextprotocol/sdk zod drizzle-orm@latest better-sqlite3 dotenv
 npm install -D typescript @types/node @types/better-sqlite3 drizzle-kit vitest
 ```
+
+:::message alert
+**セキュリティ注意:** drizzle-orm v0.45.2未満にはSQLインジェクション脆弱性があります。必ず v0.45.2 以上を使用してください。`npm install drizzle-orm@latest` で最新版をインストールできます。
+:::
 
 ### 3. tsconfig.json
 
