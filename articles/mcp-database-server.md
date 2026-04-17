@@ -48,8 +48,8 @@ npm install @modelcontextprotocol/sdk zod drizzle-orm@latest better-sqlite3 dote
 npm install -D typescript @types/node @types/better-sqlite3 drizzle-kit vitest
 ```
 
-:::message alert
-**セキュリティ注意:** drizzle-orm v0.45.2未満にはSQLインジェクション脆弱性があります。必ず v0.45.2 以上を使用してください。`npm install drizzle-orm@latest` で最新版をインストールできます。
+:::message
+**バージョン:** drizzle-orm は新しめの安定版（v0.45.2 以上）を使います。`npm install drizzle-orm@latest` で最新版をインストールできます。
 :::
 
 ### 3. tsconfig.json
