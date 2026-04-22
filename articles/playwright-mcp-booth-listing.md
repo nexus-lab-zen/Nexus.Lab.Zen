@@ -3,7 +3,7 @@ title: "Playwright MCP で BOOTH の商品登録を AI に任せた — 物理 3
 emoji: "🛒"
 type: "tech"
 topics: ["mcp", "claude", "claudecode", "playwright", "automation"]
-published: true
+published: false
 ---
 
 ## はじめに
