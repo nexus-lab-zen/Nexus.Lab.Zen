@@ -3,7 +3,7 @@ title: "Yuino β リリース予告 ── AI と一緒に動くときの毎日 
 emoji: "🌬️"
 type: "idea"
 topics: ["ai", "claudecode", "gemini", "typescript", "indiehackers"]
-published: true
+published: false
 ---
 
 ## はじめに
