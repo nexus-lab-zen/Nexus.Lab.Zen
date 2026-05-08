@@ -102,14 +102,16 @@ AI Operator Pack v0.1 は 3 つの層で構成されます。
 正直なところを書きます。
 
 - Yuino の Local Web App はまだ完成していません (5/26 release 予定)
-- 90 点品質 gate の現状 score は **41 / 100** (商品としてはまだ alpha 未満)
+- 90 点品質 gate の **local implementation score は 91.2 / 100** (5/08 朝 Kai 再採点で local target 達成)、 但し paid launch readiness は別 axis (14 day Zen + Kai dogfood evidence 必要)
 - 売上 0 円、 顧客 0 名、 検証段階
 
 但し原型は既に動いています。 内部実装名は **Aira** (`nokaze-aira/` repo、 Kai が担当)、 公開 brand 名は **Yuino**。 同じ 1 つの実体を、 内側で呼ぶときと、 外で呼ぶときで名前を変えているだけです (1 entity 2 narrative)。
 
 Aira は 5/06 evening に full closed loop の実装を完了しました (12 commits)。 6 step (観察 → 判断 → 実行 → 確認 → 復旧 → 実行) がぐるぐる回る form。
 
-90 点 gate v2 の構成 (Kai が 5/08 朝に nokaze-aira/ に正式 commit `6e03fa9`) は 12 軸 + 11 件の必須関門 + 14 day 運用記録です。 14 day で 41 点 → 60+ 点を target、 90+ 点到達は 5/26 release 後の継続改善期で。
+90 点 gate v2 の構成 (Kai が 5/08 朝に nokaze-aira/ に正式 commit `6e03fa9`) は 12 軸 + 11 件の必須関門 + 14 day 運用記録です。 5/08 朝の Kai 再採点 で **local implementation score 91.2 / 100** に到達 (local target 達成)、 但し paid launch readiness は別 axis = 14 day Zen + Kai dogfood evidence (judgment + execution + stop + recovery + failure cases) が必要。
+
+つまり local implementation の品質は到達済 (release 可能な技術 quality)、 但し 「実運用で本当に使えるか」 evidence を 5/13-5/22 dogfood 期間で集めてから release。
 
 ## 「90+ になったら改善終わり」 ではない — 継続改善 5 layer
 
