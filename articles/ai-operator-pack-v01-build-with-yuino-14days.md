@@ -1,5 +1,5 @@
 ---
-title: "AI Operator Pack v0.1 を Yuino で 14 日かけて作る — Zen の自走 mode で商品開発をドッグフードする"
+title: "AI Operator Pack v0.1 を Yuino で 14 日で作る (ドッグフード記録)"
 emoji: "🌬️"
 type: "tech"
 topics: ["ai", "claude", "openai", "anthropic", "nokaze"]
