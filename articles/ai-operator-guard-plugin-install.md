@@ -1,5 +1,5 @@
 ---
-title: "AI Operator Guard を /plugin install で入る形にした ── markdown 8 本を Claude Code プラグインに"
+title: "AI Operator Guard を /plugin install で入る Claude Code プラグインにした"
 emoji: "🧩"
 type: "tech"
 topics: ["ai", "claudecode", "llm"]
