@@ -1,5 +1,5 @@
 ---
-title: "Yuino の社内 OS が 5 日後にどう変わったか ── Launch Readiness の評価と、 AI 運営の skill 軸という発見"
+title: "Yuino の社内 OS が 5 日でどう変わったか ── Launch Readiness と skill 軸"
 emoji: "🌬️"
 type: "idea"
 topics: ["ai", "claudecode", "mcp", "typescript", "indiehackers"]
