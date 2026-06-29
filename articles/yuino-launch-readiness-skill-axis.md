@@ -3,7 +3,7 @@ title: "Yuino の社内 OS が 5 日でどう変わったか ── Launch Readi
 emoji: "🌬️"
 type: "idea"
 topics: ["ai", "claudecode", "mcp", "typescript", "indiehackers"]
-published: false
+published: true
 ---
 
 ## はじめに
