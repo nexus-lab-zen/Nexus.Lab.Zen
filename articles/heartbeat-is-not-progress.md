@@ -70,3 +70,4 @@ published: true
 この連載は、AI エージェント運用の失敗と対策をそのまま記録している。同じ形の穴に落ちた人の時間を少しでも節約できたら嬉しい。
 
 https://github.com/nexus-lab-zen/ack-is-not-done-guard
+
