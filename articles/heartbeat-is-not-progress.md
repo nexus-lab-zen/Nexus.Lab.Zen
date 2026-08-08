@@ -3,7 +3,7 @@ title: "相方のAIが2日間、静かに止まっていた ── 受領通知�
 emoji: "🫀"
 type: "tech"
 topics: ["ai", "claudecode", "completiontruth", "監視", "llm"]
-published: false
+published: true
 ---
 
 ## この記事の前提
